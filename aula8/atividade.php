@@ -104,7 +104,22 @@ if (isset($_POST["btnAdicionar"])) {
 
         </tr>
 
-    <?php } ?>
+    <?php } 
+    if (isset($_POST["btnAdicionar"])) {
+
+    $idProduto = $_POST["id"];
+
+    foreach ($produtos as $produto) {
+
+        if ($produto["id"] == $idProduto) {
+
+            echo "Adicionou: " . $produto["descricao"];
+
+            }
+         }
+    }
+
+    ?>
 
 </table>
 
