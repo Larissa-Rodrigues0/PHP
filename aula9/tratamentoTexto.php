@@ -19,7 +19,7 @@
     echo "<p>Tudo Maiúsculas: " . strtoupper($t1);  // converte para maiusculas
     echo "<p>Todas minusculas: " . strtolower($t1); // converte para minusculas
     echo "<p>Primeira letra da string " . ucfirst($t1) ; //converte a primeira letra para maiscula
-    echo "<p>Primeira letra de cada palavra maiscula: " . ucwords($t1);
+    echo "<p>Primeira letra de cada palavra maiuscula: " . ucwords($t1);
     echo "<hr>";
 
     $v1 = "";
