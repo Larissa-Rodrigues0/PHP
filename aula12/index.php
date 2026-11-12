@@ -19,14 +19,24 @@
     if(isset($_POST['btn'])){
         $user = $_POST['txtuser'];
         $pw = $_POST['txtsenha'];
-        $sql = "SELECT * FROM tb_users
-                where username='$user' and
-                passwordd='$pw' limit '";
-        $res = mysqli_query($con, $sql);
-        if(mysqli_num_rows($res)==1){
+        $sql = "SELECT * FROM tb_users 
+            WHERE 
+            username=? 
+            AND
+            password=? 
+            LIMIT 1";
+        $stmt = mysqli_stmt_init($con);
+        mysqli_stmt_prepare($stmt, $sql);
+        mysqli_stmt_bind_param($stmt, "ss", $idmsg);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_store_result($stmt);
+        $res = mysqli_stmt_get_result($stmt);
+        $dados = mysqli_fetch_all($res);
+        if(count($dados)==1){
             echo "Sucesso com $user";
-        }else{
-            echo "Usuario/senha invalidos";
+        }
+        else{
+            echo "Usuário/senha inválidos";
         }
 
     }
